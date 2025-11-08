@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Condicionales</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header><h1>Condicionales</h1></header>
+  <main class="section container">
+    <h3>If / If else / Switch / Ternario</h3>
+    <div class="menu-buttons">
+      <button onclick="c1()">1. Calificación aprobado >=60</button>
+      <button onclick="c2()">2. Positivo, negativo o cero</button>
+      <button onclick="c3()">3. Día de la semana (1-7) - switch</button>
+      <button onclick="c4()">4. Mayor con ternario</button>
+      <button onclick="c5()">5. Mayor de edad (if else)</button>
+      <button onclick="c6()">6. Divisible por 3,5 o ambos (switch)</button>
+      <button class="secondary" onclick="clearConsole()">Limpiar consola</button>
+    </div>
+
+    <div id="console" class="console"></div>
+    <div class="controls"><button class="back" onclick="backToMenu()">Volver al menú</button></div>
+  </main>
+
+  <script>
+    function c1(){ const cal = askNumber('Ingresa la calificación (0-100):'); if(cal===null) return; printToConsole(cal >= 60 ? 'Aprobado' : 'Reprobado'); }
+    function c2(){ const n = askNumber('Ingresa un número:'); if(n===null) return; if(n>0) printToConsole('Positivo'); else if(n<0) printToConsole('Negativo'); else printToConsole('Cero'); }
+    function c3(){ const d = askNumber('Número 1-7:'); if(d===null) return; let dia='Inválido'; switch(d){ case 1: dia='Lunes'; break; case 2: dia='Martes'; break; case 3: dia='Miércoles'; break; case 4: dia='Jueves'; break; case 5: dia='Viernes'; break; case 6: dia='Sábado'; break; case 7: dia='Domingo'; break; } printToConsole(dia); }
+    function c4(){ const a=askNumber('A:'), b=askNumber('B:'); if(a===null||b===null) return; const mayor = a>b ? a : b; printToConsole('Mayor = ' + mayor); }
+    function c5(){ const edad = askNumber('Edad:'); if(edad===null) return; if(edad>=18) printToConsole('Eres mayor de edad'); else printToConsole('Eres menor de edad'); }
+    function c6(){ const n = askNumber('Número:'); if(n===null) return; const mod3 = n%3===0, mod5 = n%5===0; let msg='No divisible por 3 ni 5'; switch(true){ case mod3 && mod5: msg='Divisible por 3 y 5'; break; case mod3: msg='Divisible por 3'; break; case mod5: msg='Divisible por 5'; break; } printToConsole(msg); }
+  </script>
+</body>
+</html>

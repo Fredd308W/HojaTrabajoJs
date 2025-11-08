@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Salidas a pantalla</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header><h1>Salidas a pantalla</h1></header>
+  <main class="section container">
+    <div class="menu-buttons">
+      <button onclick="ej1()">1. Mostrar mensaje (consola)</button>
+      <button onclick="ej2()">2. Suma de dos números</button>
+      <button onclick="ej3()">3. Prompt y alert saludo</button>
+      <button onclick="ej4()">4. Mostrar variable</button>
+      <button onclick="ej5()">5. Mostrar fecha</button>
+      <button onclick="ej6()">6. document.write Hola Mundo</button>
+      <button class="secondary" onclick="clearConsole()">Limpiar consola</button>
+    </div>
+
+    <div id="console" class="console"></div>
+
+    <div class="controls">
+      <button class="back" onclick="backToMenu()">Volver al menú</button>
+    </div>
+  </main>
+
+  <script>
+    function ej1(){ printToConsole('Bienvenido al curso de JavaScript 🎉'); }
+    function ej2(){ const a=8,b=12; printToConsole('Resultado: ' + a + ' + ' + b + ' = ' + (a+b)); }
+    function ej3(){ const nombre = prompt('Escribe tu nombre:'); if(nombre!==null) alert('Hola, ' + nombre + '!'); printToConsole('Prompt usado para saludo.'); }
+    function ej4(){ const valor = 100; printToConsole('El valor de la variable es: ' + valor); }
+    function ej5(){ const fecha = new Date(); alert('Fecha actual: ' + fecha); printToConsole('Fecha mostrada con alert.'); }
+    function ej6(){ document.open(); document.write('<h2 style="font-family:sans-serif;text-align:center;margin-top:2rem">Hola, Mundo desde document.write()</h2>'); document.close(); }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ciclos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header><h1>Ciclos</h1></header>
+  <main class="section container">
+    <div class="menu-buttons">
+      <button onclick="ci1()">1. Mostrar 1 a 10 (for)</button>
+      <button onclick="ci2()">2. Sumar 1 a 100 (while)</button>
+      <button onclick="ci3()">3. Tabla de multiplicar (for)</button>
+      <button onclick="ci4()">4. Primeros 10 pares (while)</button>
+      <button onclick="ci5()">5. Pedir números hasta negativo (do while)</button>
+      <button onclick="ci6()">6. Contar 'a' en palabra (for)</button>
+      <button class="secondary" onclick="clearConsole()">Limpiar consola</button>
+    </div>
+
+    <div id="console" class="console"></div>
+    <div class="controls"><button class="back" onclick="backToMenu()">Volver al menú</button></div>
+  </main>
+
+  <script>
+    function ci1(){ let out=''; for(let i=1;i<=10;i++){ out += i + ' '; } printToConsole(out); }
+    function ci2(){ let i=1, suma=0; while(i<=100){ suma+=i; i++; } printToConsole('Suma 1..100 = ' + suma); }
+    function ci3(){ const n = askNumber('Número para tabla:'); if(n===null) return; let s=''; for(let i=1;i<=10;i++){ s += n + ' x ' + i + ' = ' + (n*i) + '<br>'; } printToConsole(s); }
+    function ci4(){ let s=''; let i=2; let count=0; while(count<10){ s += i + ' '; i+=2; count++; } printToConsole(s); }
+    function ci5(){ let nums=[]; let v; do{ v = askNumber('Ingresa número (negativo para terminar):'); if(v===null) return; if(v>=0) nums.push(v); }while(v>=0); printToConsole('Ingresados: ' + nums.join(', ')); }
+    function ci6(){ const palabra = askString('Ingresa una palabra:'); if(palabra===null) return; let cnt=0; for(let ch of palabra){ if(ch.toLowerCase() === 'a') cnt++; } printToConsole("La letra 'a' aparece: " + cnt + ' veces'); }
+  </script>
+</body>
+</html>

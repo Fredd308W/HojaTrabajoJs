@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Objetos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header><h1>Objetos</h1></header>
+  <main class="section container">
+    <div class="menu-buttons">
+      <button onclick="o1()">1. Objeto persona</button>
+      <button onclick="o2()">2. Objeto coche con método</button>
+      <button onclick="o3()">3. Rectángulo área</button>
+      <button onclick="o4()">4. Objeto libro</button>
+      <button onclick="o5()">5. Usuario y verificación contraseña</button>
+      <button onclick="o6()">6. Gato (mensaje con edad)</button>
+      <button class="secondary" onclick="clearConsole()">Limpiar consola</button>
+    </div>
+
+    <div id="console" class="console"></div>
+    <div class="controls"><button class="back" onclick="backToMenu()">Volver al menú</button></div>
+  </main>
+
+  <script>
+    function o1(){ const persona = {nombre:'Carlos', edad:30, ciudad:'Quetzaltenango'}; printToConsole('Nombre: ' + persona.nombre + ' | Edad: ' + persona.edad + ' | Ciudad: ' + persona.ciudad); }
+    function o2(){ const coche = {marca:'Toyota', modelo:'Corolla', año:2018, descripcion:function(){ return this.marca + ' ' + this.modelo + ' (' + this.año + ')'; }}; printToConsole(coche.descripcion()); }
+    function o3(){ const rect = {ancho:5, alto:3, area:function(){ return this.ancho * this.alto; }}; printToConsole('Área rectángulo = ' + rect.area()); }
+    function o4(){ const libro = {titulo:'El Quijote', autor:'Cervantes', año:1605, descripcion:function(){ return this.titulo + ' — ' + this.autor + ' (' + this.año + ')'; }}; printToConsole(libro.descripcion()); }
+    function o5(){ const usuario = {nombre:'user1', contraseña:'123456', verificar:function(){ return this.contraseña === '123456'; }}; printToConsole('Verificación contraseña: ' + usuario.verificar()); }
+    function o6(){ const gato = {nombre:'Michi', edad:4, info:function(){ return 'El gato ' + this.nombre + ' tiene ' + this.edad + ' años.'; }}; printToConsole(gato.info()); }
+  </script>
+</body>
+</html>

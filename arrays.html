@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrays</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header><h1>Arrays</h1></header>
+  <main class="section container">
+    <div class="menu-buttons">
+      <button onclick="a1()">1. Array 5 números (primer y último)</button>
+      <button onclick="a2()">2. Ciudades (segunda ciudad)</button>
+      <button onclick="a3()">3. Pedir 5 números y sumar</button>
+      <button onclick="a4()">4. Recorrer array de palabras</button>
+      <button onclick="a5()">5. Pedir 5 nombres y mostrar array</button>
+      <button onclick="a6()">6. Pedir 10 números y contar mayores a 50</button>
+      <button class="secondary" onclick="clearConsole()">Limpiar consola</button>
+    </div>
+
+    <div id="console" class="console"></div>
+    <div class="controls"><button class="back" onclick="backToMenu()">Volver al menú</button></div>
+  </main>
+
+  <script>
+    function a1(){ const arr=[3,7,9,1,12]; printToConsole('Primero: ' + arr[0] + ' | Último: ' + arr[arr.length-1]); }
+    function a2(){ const ciudades=['Ciudad de Guatemala','Antigua','Quetzaltenango','Sololá','Escuintla']; printToConsole('Segunda ciudad: ' + ciudades[1]); }
+    function a3(){ const nums=[]; for(let i=0;i<5;i++){ const v = askNumber('Número ' + (i+1) + ':'); if(v===null) return; nums.push(v); } const suma = nums.reduce((s,x)=>s+x,0); printToConsole('Suma = ' + suma); }
+    function a4(){ const palabras=['sol','luna','estrella','mar','cielo']; let s=''; for(const p of palabras) s += p + '<br>'; printToConsole(s); }
+    function a5(){ const arr=[]; for(let i=0;i<5;i++){ const n = askString('Nombre ' + (i+1) + ':'); if(n===null) return; arr.push(n); } printToConsole('Nombres: ' + arr.join(', ')); }
+    function a6(){ let cnt=0; for(let i=0;i<10;i++){ const v = askNumber('Número ' + (i+1) + ':'); if(v===null) return; if(v>50) cnt++; } printToConsole('Mayores a 50: ' + cnt); }
+  </script>
+</body>
+</html>

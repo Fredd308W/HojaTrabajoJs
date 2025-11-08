@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Variables</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header><h1>Variables</h1></header>
+  <main class="section container">
+    <div class="menu-buttons">
+      <button onclick="v1()">1. Nombre, edad, ciudad</button>
+      <button onclick="v2()">2. Valor de pi</button>
+      <button onclick="v3()">3. Número y string</button>
+      <button onclick="v4()">4. Multiplicar dos números</button>
+      <button onclick="v5()">5. Pedir edad y mostrar</button>
+      <button onclick="v6()">6. Nombre y apellido</button>
+      <button class="secondary" onclick="clearConsole()">Limpiar consola</button>
+    </div>
+
+    <div id="console" class="console"></div>
+    <div class="controls"><button class="back" onclick="backToMenu()">Volver al menú</button></div>
+  </main>
+
+  <script>
+    function v1(){
+      const nombre='Ana', edad=22, ciudad='Sololá';
+      printToConsole('Nombre: ' + nombre + ' | Edad: ' + edad + ' | Ciudad: ' + ciudad);
+    }
+    function v2(){ const pi = 3.1416; printToConsole('PI = ' + pi); }
+    function v3(){ const numero=7, texto='siete'; printToConsole('Valores: ' + numero + ' - ' + texto); }
+    function v4(){ const a=6, b=9, res = a*b; printToConsole(a + ' * ' + b + ' = ' + res); }
+    function v5(){ const edad = askNumber('Ingresa tu edad:'); if(edad!==null) printToConsole('Tienes ' + edad + ' años'); }
+    function v6(){ const nombre='Fredd', apellido='Emmanuel'; printToConsole('Nombre completo: ' + nombre + ' ' + apellido); }
+  </script>
+</body>
+</html>

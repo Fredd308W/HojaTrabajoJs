@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrays de objetos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header><h1>Arrays de objetos</h1></header>
+  <main class="section container">
+    <div class="menu-buttons">
+      <button onclick="ao1()">1. Array 3 personas</button>
+      <button onclick="ao2()">2. Array 5 coches (mostrar modelos)</button>
+      <button onclick="ao3()">3. Productos precio > 100</button>
+      <button onclick="ao4()">4. Alumnos aprobados (nota>=60)</button>
+      <button onclick="ao5()">5. Array de libros (mostrar títulos)</button>
+      <button onclick="ao6()">6. Array de películas (descripcion)</button>
+      <button class="secondary" onclick="clearConsole()">Limpiar consola</button>
+    </div>
+
+    <div id="console" class="console"></div>
+    <div class="controls"><button class="back" onclick="backToMenu()">Volver al menú</button></div>
+  </main>
+
+  <script>
+    function ao1(){
+      const arr=[{nombre:'Ana',edad:20},{nombre:'Luis',edad:25},{nombre:'María',edad:22}];
+      let s=''; arr.forEach(p=> s+= p.nombre + ' (edad ' + p.edad + ')<br>'); printToConsole(s);
+    }
+    function ao2(){
+      const coches=[{marca:'Ford',modelo:'Fiesta'},{marca:'VW',modelo:'Golf'},{marca:'Honda',modelo:'Civic'},{marca:'Toyota',modelo:'Corolla'},{marca:'Mazda',modelo:'3'}];
+      printToConsole('Modelos: ' + coches.map(c=>c.modelo).join(', '));
+    }
+    function ao3(){
+      const productos=[{nombre:'Producto A',precio:80},{nombre:'Producto B',precio:150},{nombre:'Producto C',precio:200}];
+      const caros = productos.filter(p=> p.precio>100).map(p=> p.nombre + ' ($' + p.precio + ')');
+      printToConsole('Productos > 100: ' + caros.join(', '));
+    }
+    function ao4(){
+      const alumnos=[{nombre:'Ana',nota:75},{nombre:'Luis',nota:55},{nombre:'Sofia',nota:85},{nombre:'Pedro',nota:60}];
+      const aprob = alumnos.filter(a=> a.nota>=60).map(a=> a.nombre + ' (' + a.nota + ')');
+      printToConsole('Aprobados: ' + aprob.join(', '));
+    }
+    function ao5(){
+      const libros=[{titulo:'Cien años de soledad',autor:'GGM'},{titulo:'Don Quijote',autor:'Cervantes'},{titulo:'La sombra del viento',autor:'Zafón'}];
+      printToConsole('Títulos: ' + libros.map(l=>l.titulo).join(' | '));
+    }
+    function ao6(){
+      const peliculas=[{titulo:'Inception',director:'Nolan',año:2010},{titulo:'Parasite',director:'Bong',año:2019}];
+      let s=''; peliculas.forEach(p=> s += p.titulo + ' — ' + p.director + ' (' + p.año + ')<br>'); printToConsole(s);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Funciones</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header><h1>Funciones</h1></header>
+  <main class="section container">
+    <div class="menu-buttons">
+      <button onclick="f1()">1. Sumar dos números (retorna)</button>
+      <button onclick="f2()">2. Saludo con parámetro</button>
+      <button onclick="f3()">3. Área de un círculo</button>
+      <button onclick="f4()">4. Retornar mayor</button>
+      <button onclick="f5()">5. Par o impar</button>
+      <button onclick="f6()">6. Promedio de array</button>
+      <button class="secondary" onclick="clearConsole()">Limpiar consola</button>
+    </div>
+
+    <div id="console" class="console"></div>
+    <div class="controls"><button class="back" onclick="backToMenu()">Volver al menú</button></div>
+  </main>
+
+  <script>
+    function sumar(a,b){ return a+b; }
+    function saludo(nombre){ printToConsole('Hola, ' + nombre + '!'); }
+    function areaCirculo(r){ return 3.1416 * r * r; }
+    function mayor(a,b){ return a >= b ? a : b; }
+    function esPar(n){ return n % 2 === 0; }
+    function promedio(arr){ if(!arr.length) return 0; return arr.reduce((s,x)=>s+x,0)/arr.length; }
+
+    function f1(){ const res = sumar(5,8); printToConsole('5 + 8 = ' + res); }
+    function f2(){ const nombre = askString('Escribe un nombre:'); if(nombre!==null) saludo(nombre); }
+    function f3(){ const r = askNumber('Radio del círculo:'); if(r!==null) printToConsole('Área = ' + areaCirculo(r).toFixed(4)); }
+    function f4(){ const a = askNumber('Número A:'), b=askNumber('Número B:'); if(a!==null && b!==null) printToConsole('Mayor = ' + mayor(a,b)); }
+    function f5(){ const n = askNumber('Ingresa un número:'); if(n!==null) printToConsole(n + ' es ' + (esPar(n) ? 'par' : 'impar')); }
+    function f6(){ const nums = []; for(let i=0;i<5;i++){ const v=askNumber('Número ' + (i+1) + ':'); if(v===null) return; nums.push(v); } printToConsole('Promedio = ' + promedio(nums)); }
+  </script>
+</body>
+</html>
