@@ -25,14 +25,23 @@
 
   <script>
     function v1(){
-      const nombre='Ana', edad=22, ciudad='Sololá';
-      printToConsole('Nombre: ' + nombre + ' | Edad: ' + edad + ' | Ciudad: ' + ciudad);
+      const nombre= prompt('Escribe el nombre: '), edad=prompt('Ingresa la edad: '), ciudad=prompt('Ingresa la ciudad: ');
+      if(nombre!=null && edad!=null && ciudad!=null){
+        printToConsole('Nombre: ' + nombre + ' | Edad: ' + edad + ' | Ciudad: ' + ciudad);
+      } 
+      else{
+        printToConsole('Ingrese datos válidos');
+      }
     }
     function v2(){ const pi = 3.1416; printToConsole('PI = ' + pi); }
     function v3(){ const numero=7, texto='siete'; printToConsole('Valores: ' + numero + ' - ' + texto); }
-    function v4(){ const a=6, b=9, res = a*b; printToConsole(a + ' * ' + b + ' = ' + res); }
+    function v4(){ 
+      const a=parseFloat(prompt('Ingresa el primer numero: ')),
+      b=parseFloat(prompt('Ingresa el segundo numero: ')), 
+      res = a*b;
+      printToConsole(a + ' * ' + b + ' = ' + res); }
     function v5(){ const edad = askNumber('Ingresa tu edad:'); if(edad!==null) printToConsole('Tienes ' + edad + ' años'); }
-    function v6(){ const nombre='Fredd', apellido='Emmanuel'; printToConsole('Nombre completo: ' + nombre + ' ' + apellido); }
+    function v6(){ const nombre= prompt('Ingresa tu nombre: '), apellido=prompt('Ingresa tu apellido'); printToConsole('Nombre completo: ' + nombre + ' ' + apellido); }
   </script>
 </body>
 </html>

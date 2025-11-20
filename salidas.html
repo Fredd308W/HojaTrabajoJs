@@ -27,12 +27,38 @@
   </main>
 
   <script>
-    function ej1(){ printToConsole('Bienvenido al curso de JavaScript 🎉'); }
-    function ej2(){ const a=8,b=12; printToConsole('Resultado: ' + a + ' + ' + b + ' = ' + (a+b)); }
-    function ej3(){ const nombre = prompt('Escribe tu nombre:'); if(nombre!==null) alert('Hola, ' + nombre + '!'); printToConsole('Prompt usado para saludo.'); }
-    function ej4(){ const valor = 100; printToConsole('El valor de la variable es: ' + valor); }
-    function ej5(){ const fecha = new Date(); alert('Fecha actual: ' + fecha); printToConsole('Fecha mostrada con alert.'); }
-    function ej6(){ document.open(); document.write('<h2 style="font-family:sans-serif;text-align:center;margin-top:2rem">Hola, Mundo desde document.write()</h2>'); document.close(); }
+    function ej1(){ printToConsole('Ejercicio son JavaScript'); }
+    function ej2(){ 
+      const a=parseFloat(prompt('Ingrese el primer numero: ')),b = parseFloat(prompt('Ingrese el segundo numero: '));
+      printToConsole('Resultado: ' + a + ' + ' + b + ' = ' + (a+b)); }
+    function ej3(){ const nombre = prompt('Escribe tu nombre:'); if(nombre!==null); printToConsole('Hola '+nombre); }
+    function ej4(){ const valor = parseFloat(prompt('Ingresa la variable:')); if (valor!==null); printToConsole('El valor de la variable es: ' + valor); }
+    function ej5(){ const fecha = new Date(); printToConsole('Fecha: '+ fecha); }
+    function ej6() {
+  // Buscar el contenedor donde se mostrará el mensaje
+  const contenedor = document.querySelector('.section') || document.body;
+
+  // Crear un elemento nuevo
+  const mensaje = document.createElement('h2');
+  mensaje.textContent = "Hola, Mundo desde document.write()";
+  mensaje.style.fontFamily = "sans-serif";
+  mensaje.style.textAlign = "center";
+  mensaje.style.marginTop = "2rem";
+  mensaje.style.color = "#273c75";
+
+  // Insertarlo antes del enlace "Volver al menú"
+  const enlace = document.querySelector('.back');
+  if (enlace && enlace.parentNode) {
+    enlace.parentNode.insertBefore(mensaje, enlace);
+  } else {
+    // Si no encuentra el enlace, simplemente lo añade al final
+    contenedor.appendChild(mensaje);
+  }
+
+  // Mostrar también en la consola visual
+  printToConsole("Se mostró 'Hola, Mundo desde document.write()' en la página.");
+}
+
   </script>
 </body>
 </html>
